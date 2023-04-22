@@ -1,11 +1,10 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import { AppService } from '../services/app.service';
 
-const Book = React.lazy(() => import('./Book'));
+const BookCard = React.lazy(() => import('./BookCard'));
 
 const Booklist = () => {
     const [ books, setBooks ] = useState<any>();
-
     const getAllBooks = async () => {
         var service = new AppService();
         const books = await service.getAllBooks();
@@ -18,22 +17,18 @@ const Booklist = () => {
     }, []);
 
     return (
-        <section className="booklist">
+        <section className="book-list">
         <Suspense fallback={ <div>Loading...</div> }>
-        { books && books.items.length > 0 ? (
-            <div className='books'>
-                { books.items.map(( item:any ) => {
-                    console.log("item", item);
-                        return <Book key={ item?.id }
-                                     title={ item?.volumeInfo?.title }
-                                     imgSrc={ item?.volumeInfo?.imageLinks?.thumbnail }
-                                     authors={ item?.volumeInfo?.authors } />
+            { books && books.items.length > 0 && (
+                books.items.map(( item:any, index:number ) => {
+                        return <BookCard key={ item?.id }
+                                    title={ item?.volumeInfo?.title }
+                                    imgSrc={ item?.volumeInfo?.imageLinks?.thumbnail }
+                                    authors={ item?.volumeInfo?.authors }
+                                    index={ index }/>
                     }
-                )}
-            </div>
-        ) : (
-            <span>No books found</span>
-        )}
+                )
+            )}
         </Suspense>
     </section>
     )

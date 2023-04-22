@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Booklist from './components/Booklist';
-import './App.css';
 
 function App() {
   
   return (
     <div className="App">
       <Navbar />
-      <Booklist />
+      <Suspense fallback={ <div>Loading...</div> }>
+        <Booklist /> 
+      </Suspense>
     </div>
   );
 }

@@ -1,0 +1,54 @@
+/** Globals **/
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Carlito:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* Global Variables */
+@font-size: 13px;
+@border-radius: 4px;
+@transition: 0.3s all ease-out;
+
+// Media Queries
+@max-desktop: 1140px;
+@max-mobile: 959px;
+@desktop:   ~"only screen and (min-width: 960px) and (max-width: 1199px)";
+@mobile:    ~"only screen and (min-width: 720px) and (max-width: 959px)";
+
+/* Global Elements */
+* {
+    padding: 0;
+	margin: 0;
+    font-family: 'Carlito', sans-serif;
+}
+
+body {
+    padding: 0;
+	margin: 0;
+    font-family: 'Carlito', sans-serif;
+    transition: @transition;
+    background-color: @background-color;
+    &.fixed {
+        width:100%;
+        position: fixed;
+    }
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: @max-desktop;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* Animation */
+@keyframes create {
+    from { 
+        opacity: 0;
+        margin-bottom: 5%;
+    }
+    to { 
+        opacity: 1;
+        margin-bottom: 0;
+    }
+  }

@@ -1,0 +1,88 @@
+/** Components **/
+/* Variables */
+
+
+
+/* Components */
+// Book list //
+.book-list {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+// Book Card //
+.book-card {
+    @card-width: 223px;
+    @card-height: 377px;
+    @card-width-mobile: 155px;
+    @card-height-mobile: 241px;
+    @card-border-radius: @border-radius *2;
+    @card-padding: 8px;
+    @card-margin: 8px;
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: @card-background;
+    color: @card-text-color;
+    border-radius: @card-border-radius;
+    padding: @card-padding;
+    margin: @card-margin;
+    border: 2px solid transparent;
+    animation-name: create;
+    animation-duration: 1s;
+
+    &:hover {
+        border: 2px solid @card-box-border;
+    }
+    .book-top {
+        position: relative;
+        display: flex;
+        width: 100%;
+        .book-cover {
+            width: @card-width;
+            height: @card-height;
+            border-radius: @border-radius;
+            @media ( max-width: @max-mobile ) {
+                width: @card-width-mobile;
+                height: @card-height-mobile;
+            }
+        }
+        .wishlist-button {
+            position: absolute;
+            border-radius: @border-radius;
+            display: flex;
+            background-color: @heart-button-background;
+            padding: @card-padding;
+            margin: @card-margin;
+            top: 0;
+            right: 0;
+            .wishlist-icon {
+                width: 18px;
+                height: 18px;
+                fill: @heart-button-background;
+                stroke: @heart-button-border;
+                &:hover {
+                    fill: @heart-button-hover-background;
+                }
+            }
+        }
+    }
+
+    .book-title, .book-authors {
+        position: relative;
+        display: flex;
+        width: @card-width;
+        font-size: @font-size;
+        margin-top: @card-margin;
+    }
+
+    .book-title {
+        font-weight: 700;
+    }
+
+    .book-authors {
+        margin-bottom: @card-margin;
+    }
+}
