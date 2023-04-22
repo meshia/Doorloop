@@ -1,9 +1,4 @@
 /** Components **/
-/* Variables */
-
-
-
-/* Components */
 // Book list //
 .book-list {
     display: flex;
@@ -54,15 +49,16 @@
             border-radius: @border-radius;
             display: flex;
             background-color: @heart-button-background;
-            padding: @card-padding;
-            margin: @card-margin;
+            padding: @card-padding*1.5;
+            margin: @card-margin*0.5;
             top: 0;
             right: 0;
             .wishlist-icon {
-                width: 18px;
-                height: 18px;
+                width: 14px;
+                height: 12px;
                 fill: @heart-button-background;
                 stroke: @heart-button-border;
+                stroke-width: 2;
                 &:hover {
                     fill: @heart-button-hover-background;
                 }
@@ -76,6 +72,9 @@
         width: @card-width;
         font-size: @font-size;
         margin-top: @card-margin;
+        @media ( max-width: @max-mobile ) {
+            width: @card-width-mobile;
+        }
     }
 
     .book-title {
@@ -84,5 +83,6 @@
 
     .book-authors {
         margin-bottom: @card-margin;
+        
     }
 }
