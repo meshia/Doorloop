@@ -26,7 +26,7 @@ const Search = () => {
     return (
         <div className='search'>
             <input type='text'
-                   placeholder='Search'
+                   placeholder='Looking for a book?'
                    onChange={(e) => setQuery(e.target.value)}
                    />
             <SearchIcon />

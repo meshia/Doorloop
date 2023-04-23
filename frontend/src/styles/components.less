@@ -2,6 +2,7 @@
 // Navbar //
 .navbar { 
     display: flex;
+    flex-flow: row wrap;
     align-items: center;
     padding: @base-padding;
     background-color: @bar-background;
@@ -25,13 +26,40 @@
                     display: none;
             }
         }
+        @media ( max-width: @max-mobile ) {
+            margin-left: auto;
+        }
     }
 }
 
 // Search
 .search {
+    position: relative;
     display:flex;
     margin-left: auto;
+    @media ( max-width: @max-mobile ) {
+        width: 100%;
+        flex-shrink: 0;
+    }
+    input {
+        border: 1px solid @sreach-border;
+        color: @sreach-text;
+        border-radius: 20px;
+        height: 30px;
+        width: 447px;
+        padding: 2px 30px 2px 13px;
+        outline: 0;
+        background-color: inherit;
+        @media ( max-width: @max-mobile ) {
+            width: 100%;
+        }
+    }
+    svg {
+        position: absolute;
+        top: 6px;
+        right: 8px;
+        opacity: 0.5;
+    }
 }
 
 // Book list //
