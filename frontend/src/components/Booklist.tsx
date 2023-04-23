@@ -12,6 +12,7 @@ const Booklist = () => {
             { booksContext && booksContext.books && booksContext.books?.items.length > 0 && (
                 booksContext.books.items.map(( item:any, index:number ) => {
                         return <BookCard key={ item.id }
+                                    id={ item.id }
                                     title={ item.volumeInfo?.title }
                                     imgSrc={ item.volumeInfo?.imageLinks?.thumbnail }
                                     authors={ item.volumeInfo?.authors }
