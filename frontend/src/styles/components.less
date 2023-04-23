@@ -1,4 +1,11 @@
 /** Components **/
+// Navbar //
+.navbar { 
+    display: flex;
+    padding: @base-padding;
+    background-color: @bar-background;
+}
+
 // Book list //
 .book-list {
     display: flex;
@@ -13,8 +20,6 @@
     @card-width-mobile: 155px;
     @card-height-mobile: 241px;
     @card-border-radius: @border-radius *2;
-    @card-padding: 8px;
-    @card-margin: 8px;
 
     position: relative;
     display: flex;
@@ -22,8 +27,8 @@
     background-color: @card-background;
     color: @card-text-color;
     border-radius: @card-border-radius;
-    padding: @card-padding;
-    margin: @card-margin;
+    padding: @base-padding;
+    margin: @base-margin;
     border: 2px solid transparent;
     animation-name: create;
     animation-duration: 1s;
@@ -49,8 +54,8 @@
             border-radius: @border-radius;
             display: flex;
             background-color: @heart-button-background;
-            padding: @card-padding*1.5;
-            margin: @card-margin*0.5;
+            padding: @base-padding*1.5;
+            margin: @base-margin*0.5;
             top: 0;
             right: 0;
             .wishlist-icon {
@@ -71,7 +76,7 @@
         display: flex;
         width: @card-width;
         font-size: @font-size;
-        margin-top: @card-margin;
+        margin-top: @base-margin;
         @media ( max-width: @max-mobile ) {
             width: @card-width-mobile;
         }
@@ -82,7 +87,6 @@
     }
 
     .book-authors {
-        margin-bottom: @card-margin;
-        
+        margin-bottom: @base-margin;
     }
 }

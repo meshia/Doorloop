@@ -13,13 +13,17 @@ const BookCard = (props:BookProps) => {
         animationDelay: `${ props.index * 2 }`
     }
 
+    const addToWishlist = ( event:any ) => {
+        console.log(event)
+    }
+
     return (
         <div className='book-card' style={ animationDelay }>
             <div className='book-top'>
                 <img className='book-cover' alt={ props.title } src={ props.imgSrc } />
-                <div className='wishlist-button'>
+                <button className='wishlist-button' onClick={ addToWishlist }>
                      <Heart className='wishlist-icon'/>
-                </div>
+                </button>
             </div>
             <span className='book-title'>{ props.title }</span>
             <span className='book-authors'>by { props.authors }</span>
