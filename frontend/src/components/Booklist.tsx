@@ -1,21 +1,11 @@
-import React, { useEffect, Suspense, useContext } from 'react';
+import React, { Suspense, useContext } from 'react';
 import { BooksContext } from '../context/BooksContext';
-import { AppService } from '../services/app.service';
 
 const BookCard = React.lazy(() => import('./BookCard'));
 
 const Booklist = () => {
     const booksContext = useContext(BooksContext);
-    const getAllBooks = async () => {
-        var service = new AppService();
-        const bookslist = await service.getAllBooks();
-        console.log("bookslist", bookslist);
-        booksContext.setBooks(bookslist);
-    }
 
-    useEffect(() => {
-        getAllBooks();
-    }, []);
     return (
         <section className="book-list">
         <Suspense fallback={ <div>Loading...</div> }>

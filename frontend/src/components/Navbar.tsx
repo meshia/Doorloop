@@ -6,10 +6,10 @@ import { ReactComponent as Heart } from '../assets/heart.svg';
 const Navbar = () => {
     return (
         <div className='navbar'>
-            <Logo />
+            <Logo className='logo'/>
             <button className='wishlist-filter'>
-                <Heart />
-                <span>Wishlist</span>
+                <Heart className='heart'/>
+                <span className='wishlist-text'>My Wish List</span>
             </button>
             <Search />
         </div>

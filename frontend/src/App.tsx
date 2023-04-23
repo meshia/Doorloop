@@ -1,7 +1,7 @@
-import React, { Suspense, useState, useEffect, useContext } from 'react';
+import React, { Suspense } from 'react';
 import { BooksContextProvider } from './context/BooksContext';
 import Navbar from './components/Navbar';
-import Booklist from './components/Booklist';
+const Booklist = React.lazy(() => import('./components/Booklist'));
 
 function App() {
     

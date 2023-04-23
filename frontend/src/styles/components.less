@@ -2,8 +2,36 @@
 // Navbar //
 .navbar { 
     display: flex;
+    align-items: center;
     padding: @base-padding;
     background-color: @bar-background;
+    * {
+        margin: @base-margin;
+    }
+    .logo {
+        height: 28px;
+    }
+    .wishlist-filter {
+        display: flex;
+        flex-direction: row;
+        .heart {
+            fill: @text-color;
+            width: 18px;
+            height: 18px;
+        }
+        .wishlist-text {
+            display: flex;
+            @media ( max-width: @max-mobile ) {
+                    display: none;
+            }
+        }
+    }
+}
+
+// Search
+.search {
+    display:flex;
+    margin-left: auto;
 }
 
 // Book list //
@@ -51,13 +79,13 @@
         }
         .wishlist-button {
             position: absolute;
-            border-radius: @border-radius;
-            display: flex;
-            background-color: @heart-button-background;
-            padding: @base-padding*1.5;
-            margin: @base-margin*0.5;
             top: 0;
             right: 0;
+            display: flex;
+            padding: @base-padding*1.5;
+            margin: @base-margin*0.5;
+            background-color: @heart-button-background;
+            border-radius: @border-radius;
             .wishlist-icon {
                 width: 14px;
                 height: 12px;
