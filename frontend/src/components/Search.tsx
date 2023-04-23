@@ -7,17 +7,14 @@ import axios from 'axios';
 const Search = () => {
     const booksContext = useContext(BooksContext);
     const [query, setQuery] = useState<string | null>();
-    const [loading, setLoading] = useState(false);
-    const debouncedSearch = useDebounce(query, 300);
+    const debouncedSearch = useDebounce(query, 500);
 
     useEffect(() => {
         async function fetchData() {
-            setLoading(true);
             axios
             .get(`https://www.googleapis.com/books/v1/volumes?q=${ debouncedSearch }&maxResults=20`)
             .then(res => {
                     booksContext.setBooks(res.data);
-                    setLoading(false);
                 })
             .catch(err => {
                     console.log(err);
@@ -32,7 +29,7 @@ const Search = () => {
                    placeholder='Search'
                    onChange={(e) => setQuery(e.target.value)}
                    />
-            <SearchIcon />    
+            <SearchIcon />
         </div>
     )
 }
