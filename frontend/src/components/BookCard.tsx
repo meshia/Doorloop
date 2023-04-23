@@ -15,7 +15,7 @@ const BookCard = (props:BookProps) => {
         animationDelay: `${ props.index * 2 }`
     }
 
-    const addToWishlist = ( event:any ) => {
+    const handleWishlist = ( event:any ) => {
         if(localStorage.getItem(props.id)) {
             localStorage.removeItem(props.id)
             setInWishlist(false);
@@ -29,7 +29,7 @@ const BookCard = (props:BookProps) => {
         <div className='book-card' style={ animationDelay }>
             <div className='book-top'>
                 <img className='book-cover' alt={ props.title } src={ props.imgSrc } />
-                <button className='wishlist-button' onClick={ addToWishlist }>
+                <button className='wishlist-button' onClick={ handleWishlist }>
                      <Heart className={ `wishlist-icon ${ inWishlist ? 'pink' : ''}` }/>
                 </button>
             </div>

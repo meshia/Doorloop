@@ -10,18 +10,19 @@ const Search = () => {
     const debouncedSearch = useDebounce(query, 500);
 
     useEffect(() => {
+        booksContext.setWishlist(null);
         async function fetchData() {
             axios
             .get(`https://www.googleapis.com/books/v1/volumes?q=${ debouncedSearch }&maxResults=20`)
             .then(res => {
-                    booksContext.setBooks(res.data);
-                })
+                booksContext.setBooks(res.data);
+            })
             .catch(err => {
-                    console.log(err);
-                })
+                console.log(err);
+            })
         }
         if(debouncedSearch) fetchData();
-    },[booksContext, debouncedSearch])
+    },[debouncedSearch])
 
     return (
         <div className='search'>
